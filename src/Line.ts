@@ -13,4 +13,8 @@ export default class Line {
         return (this.pointA.equals(other.pointA) && this.pointB.equals(other.pointB)) ||
             (this.pointA.equals(other.pointB) && this.pointB.equals(other.pointA))
     }
+
+    contains(point: Point) {
+        return this.pointA.equals(point) || this.pointB.equals(point)
+    }
 }
