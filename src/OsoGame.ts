@@ -13,12 +13,6 @@ export class OsoGame {
         this.matches = []
     }
 
-    matchesContains(coords: Point) {
-        return !!this.matches.find(
-            match => coords.equals(match.pointA) || coords.equals(match.pointB)
-        )
-    }
-
     solitaire() {
         const scanner = new GridScanner()
         const grid = this.table.grid
@@ -27,20 +21,27 @@ export class OsoGame {
             for (let x = 0; x < grid[y].length; x++) {
                 const pointA = new Point(x, y)
                 const aSquare = grid[y][x]
-                if (
-                    aSquare.value === OsoValue.O &&
-                    !this.matchesContains(pointA)
-                ) {
+
+                if (aSquare.value === OsoValue.O) {
                     scanner.position = pointA
                     let roundCoords = scanner.getBoundaryCoords(grid, 1, GridScanner.movementCoordsGens.square)
+                    let relatedMatches = this.matches.filter(match => match.contains(pointA))
+
                     for (const middleCoord of roundCoords) {
                         const middleSquare = grid[middleCoord.y][middleCoord.x]
+
                         if (middleSquare.value === OsoValue.S) {
                             const pointB = middleCoord.move(pointA.distanceBetween(middleCoord))
+
                             if (scanner.coordIsValid(grid, pointB)) {
                                 const bSquare = grid[pointB.y][pointB.x]
+
                                 if (bSquare.value === OsoValue.O) {
-                                    this.matches.push(new OsoMatch(pointA, pointB))
+                                    relatedMatches = relatedMatches.filter(match => match.contains(pointB))
+
+                                    if (relatedMatches.length === 0) {
+                                        this.matches.push(new OsoMatch(pointA, pointB))
+                                    }
                                 }
                             }
                         }
@@ -50,8 +51,3 @@ export class OsoGame {
         }
     }
 }
-
-const game = new OsoGame(5, 5)
-console.log(game.table.grid.map(row => row.map(square => square.value === '' ? ' ' : square.value)))
-game.solitaire()
-console.log(game.matches)
