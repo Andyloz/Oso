@@ -26,8 +26,4 @@ export default class OsoMatch extends Line {
         }
         super(pointA, pointB);
     }
-
-    equals() {
-
-    }
 }

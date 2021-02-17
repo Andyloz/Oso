@@ -8,4 +8,9 @@ export default class Line {
         this.pointA = pointA
         this.pointB = pointB
     }
+
+    equals(other: Line) {
+        return (this.pointA.equals(other.pointA) && this.pointB.equals(other.pointB)) ||
+            (this.pointA.equals(other.pointB) && this.pointB.equals(other.pointA))
+    }
 }
