@@ -1,12 +1,11 @@
 import React, { Component } from "react"
 import ReactDOM from "react-dom"
-import Point from "./scripts/Point";
-import "./index.sass"
+import OsoGameComp from "./components/OsoGameComp"
+import OsoGame from "./scripts/OsoGame"
 
 class Root extends Component {
-    render() {
-        const a = new Point(0, 0)
-        return <h1>Hola mundo !!! {a.toString()}</h1>
+    render(): React.ReactNode {
+        return <OsoGameComp game={new OsoGame(5, 5)}/>
     }
 }
 
