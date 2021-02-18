@@ -35,11 +35,11 @@ export default class OsoGrid {
         }
     }
 
-    get cols() {
+    get cols(): number {
         return this.grid[0].length
     }
 
-    get rows() {
+    get rows(): number {
         return this.grid.length
     }
 }

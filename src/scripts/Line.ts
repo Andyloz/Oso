@@ -9,12 +9,12 @@ export default class Line {
         this.pointB = pointB
     }
 
-    equals(other: Line) {
+    equals(other: Line): boolean {
         return (this.pointA.equals(other.pointA) && this.pointB.equals(other.pointB)) ||
             (this.pointA.equals(other.pointB) && this.pointB.equals(other.pointA))
     }
 
-    contains(point: Point) {
+    contains(point: Point): boolean {
         return this.pointA.equals(point) || this.pointB.equals(point)
     }
 }

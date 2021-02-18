@@ -4,7 +4,7 @@ import GridScanner from "./GridScanner";
 import Point from "./Point";
 import OsoValue from "./OsoValue";
 
-export class OsoGame {
+export default class OsoGame {
     readonly table: OsoGrid
     readonly matches: Array<OsoMatch>
 
@@ -13,7 +13,7 @@ export class OsoGame {
         this.matches = []
     }
 
-    solitaire() {
+    solitaire(): void {
         const scanner = new GridScanner()
         const grid = this.table.grid
 
@@ -24,7 +24,7 @@ export class OsoGame {
 
                 if (aSquare.value === OsoValue.O) {
                     scanner.position = pointA
-                    let roundCoords = scanner.getBoundaryCoords(grid, 1, GridScanner.movementCoordsGens.square)
+                    const roundCoords = scanner.getBoundaryCoords(grid, 1, GridScanner.movementCoordsGens.square)
                     let relatedMatches = this.matches.filter(match => match.contains(pointA))
 
                     for (const middleCoord of roundCoords) {

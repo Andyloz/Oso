@@ -28,16 +28,16 @@ export default class GridScanner {
         else this.position = new Point(0, 0)
     }
 
-    coordIsValid(grid: Array<Array<any>>, coord: Point) {
-        return grid[coord.x] && grid[coord.x][coord.y]
+    coordIsValid(grid: Array<Array<unknown>>, coord: Point):boolean {
+        return !!grid[coord.x] && !!grid[coord.x][coord.y]
     }
 
-    *getBoundaryCoords(grid: Array<Array<any>>, radius: number, movementCoordsGen: MovementCoordsGen) {
+    *getBoundaryCoords(grid: Array<Array<unknown>>, radius: number, movementCoordsGen: MovementCoordsGen): Generator<Point> {
         radiusChecker(radius)
 
         const moves = movementCoordsGen(radius)
-        for (let movement of moves) {
-            let boundCoord = this.position.move(movement)
+        for (const movement of moves) {
+            const boundCoord = this.position.move(movement)
             if (this.coordIsValid(grid, boundCoord))
                 yield boundCoord
         }

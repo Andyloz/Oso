@@ -1,33 +1,34 @@
 export default class Point {
-    public x: number;
-    public y: number;
+  public x: number;
 
-    constructor(x: number, y:number) {
-        this.x = x
-        this.y = y
-    }
+  public y: number;
 
-    move(movement: Point) {
-        const clone = this.clone()
-        clone.x += movement.x
-        clone.y += movement.y
-        return clone
-    }
+  constructor(x: number, y:number) {
+    this.x = x;
+    this.y = y;
+  }
 
-    distanceBetween(other: Point) {
-        return new Point(other.x - this.x, other.y - this.y)
-    }
+  move(movement: Point): Point {
+    const clone = this.clone();
+    clone.x += movement.x;
+    clone.y += movement.y;
+    return clone;
+  }
 
-    equals(other: Point) {
-        return this.x === other.x &&
-            this.y === other.y
-    }
+  distanceBetween(other: Point): Point {
+    return new Point(other.x - this.x, other.y - this.y);
+  }
 
-    clone() {
-        return new Point(this.x, this.y)
-    }
+  equals(other: Point): boolean {
+    return this.x === other.x &&
+      this.y === other.y;
+  }
 
-    toString() {
-        return `{ x: ${this.x}, y: ${this.y} }`
-    }
+  clone(): Point {
+    return new Point(this.x, this.y);
+  }
+
+  toString(): string {
+    return `{ x: ${this.x}, y: ${this.y} }`;
+  }
 }
