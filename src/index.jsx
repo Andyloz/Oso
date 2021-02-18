@@ -1,9 +1,12 @@
 import React, { Component } from "react"
 import ReactDOM from "react-dom"
+import Point from "./scripts/Point";
+import "./index.sass"
 
 class Root extends Component {
     render() {
-        return <h1>Hola mundo !!!</h1>
+        const a = new Point(0, 0)
+        return <h1>Hola mundo !!! {a.toString()}</h1>
     }
 }
 

@@ -10,14 +10,25 @@ module.exports = {
         path: path.resolve(__dirname, "public"),
         filename: "main.js"
     },
+    resolve: {
+        extensions: [".js", ".ts", ".tsx"]
+    },
     module: {
         rules: [
             {
-                test: /\.(js|jsx)?$/,
+                test: /\.(js|jsx|ts|tsx)?$/,
                 exclude: /node_modules/,
                 use: {
                     loader: "babel-loader"
                 }
+            },
+            {
+                test: /\.s[ac]ss$/,
+                use: [
+                    { loader: "style-loader" },
+                    { loader: "css-loader" },
+                    { loader: "sass-loader" },
+                ]
             }
         ]
     },
