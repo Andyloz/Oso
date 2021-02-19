@@ -1,9 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@200&display=swap')
 $square-width: 4rem
-$grid-border-width: 2px
+$value-size: 3.75rem
+$grid-border-width: 1px
+$grid-border-color: hsl(0, 0%, 80%)
 
 .OsoGrid
   display: flex
   flex-flow: column
+  font-family: "Raleway", sans-serif
+  font-weight: 200
 
   .OsoRow
     display: flex
@@ -12,11 +17,11 @@ $grid-border-width: 2px
       display: flex
       width: $square-width
       height: $square-width
-      font-size: 2.5em
+      font-size: $value-size
       & > span
         margin: auto
 
-      border: $grid-border-width solid black
+      border: $grid-border-width solid $grid-border-color
       border-right-width: 0
       border-bottom-width: 0
       &:last-child
