@@ -17,14 +17,15 @@ export default class OsoGameComp extends React.Component<Props, State> {
         this.state = { matches: this.props.game.matches }
     }
 
-    handleClick(_: React.MouseEvent<HTMLButtonElement>): void {
-        return undefined
+    handleClick(e: React.MouseEvent<HTMLButtonElement>): void {
+        this.props.game.solitaire()
+        this.setState({ matches: this.props.game.matches })
     }
 
     render(): React.ReactNode {
         return (
             <div>
-                <OsoGridComp table={this.props.game.table}/>
+                <OsoGridComp table={this.props.game.table} matches={this.state.matches}/>
                 <button>Solitaire</button>
             </div>
         )
