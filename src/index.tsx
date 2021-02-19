@@ -2,6 +2,7 @@ import React, { Component } from "react"
 import ReactDOM from "react-dom"
 import OsoGameComp from "./components/OsoGameComp"
 import OsoGame from "./scripts/OsoGame"
+import "./index.sass"
 
 class Root extends Component {
     render(): React.ReactNode {
