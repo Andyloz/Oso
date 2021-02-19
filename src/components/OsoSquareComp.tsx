@@ -3,6 +3,7 @@ import React from "react";
 
 interface Props {
     square: OsoSquare
+    crossed: boolean
 }
 
 export default class OsoSquareComp extends React.Component<Props, Record<string, never>> {

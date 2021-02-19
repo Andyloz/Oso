@@ -3,18 +3,22 @@ import React from "react";
 import "./OsoGame.sass"
 import { reverseMap } from "../scripts/utilities";
 import OsoRowComp from "./OsoRowComp";
+import OsoMatch from "../scripts/OsoMatch";
 
 interface Props {
     table: OsoGrid
+    matches: OsoMatch[]
 }
 
 export default class OsoGridComp extends React.Component<Props, Record<string, never>> {
     render(): React.ReactNode {
         const grid = this.props.table.grid
+        const matches = this.props.matches
         return (
             <div className="OsoGrid">
                 { reverseMap(grid, (row, rowIndex) => {
-                    return <OsoRowComp key={rowIndex} tableRow={row}/>
+                    const rowMatches = matches[rowIndex] || []
+                    return <OsoRowComp key={rowIndex} tableRow={row} matches={rowMatches}/>
                 }) }
             </div>
         )
