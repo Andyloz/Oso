@@ -15,9 +15,10 @@ export default class OsoGameComp extends React.Component<Props, State> {
     constructor(props: Props) {
         super(props);
         this.state = { matches: this.props.game.matches }
+        this.handleSolitaire = this.handleSolitaire.bind(this)
     }
 
-    handleClick(e: React.MouseEvent<HTMLButtonElement>): void {
+    handleSolitaire(e: React.MouseEvent<HTMLButtonElement>): void {
         this.props.game.solitaire()
         this.setState({ matches: this.props.game.matches })
     }
@@ -26,7 +27,7 @@ export default class OsoGameComp extends React.Component<Props, State> {
         return (
             <div>
                 <OsoGridComp table={this.props.game.table} matches={this.state.matches}/>
-                <button>Solitaire</button>
+                <button onClick={this.handleSolitaire}>Solitaire</button>
             </div>
         )
     }
