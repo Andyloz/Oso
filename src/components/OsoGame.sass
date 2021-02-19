@@ -2,7 +2,8 @@
 $square-width: 4rem
 $value-size: 3.75rem
 $grid-border-width: 1px
-$grid-border-color: hsl(0, 0%, 80%)
+$grid-border-color: #cccccc
+$crossed-bg-color: #e6e6ff
 
 .OsoGrid
   display: flex
@@ -18,8 +19,11 @@ $grid-border-color: hsl(0, 0%, 80%)
       width: $square-width
       height: $square-width
       font-size: $value-size
+      line-height: 1em
       & > span
         margin: auto
+      &.crossed
+        background-color: $crossed-bg-color
 
       border: $grid-border-width solid $grid-border-color
       border-right-width: 0
