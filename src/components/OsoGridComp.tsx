@@ -17,7 +17,9 @@ export default class OsoGridComp extends React.Component<Props, Record<string, n
         return (
             <div className="OsoGrid">
                 { reverseMap(grid, (row, rowIndex) => {
-                    const rowMatches = matches[rowIndex] || []
+                    const rowMatches = matches.filter(match => {
+                        [match.pointA, match.middlePoint, match.pointB].filter(point => point.y === rowIndex)
+                    })
                     return <OsoRowComp key={rowIndex} tableRow={row} matches={rowMatches}/>
                 }) }
             </div>
