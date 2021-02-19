@@ -8,6 +8,6 @@ export const Random = {
     }
 }
 
-export function reverseMap<T, O>(arg: T[], fn: (a: T) => O): O[] {
-    return arg.map((_, i, arr) => fn(arr[arr.length - i - 1]))
+export function reverseMap<T, O>(arg: T[], fn: (a: T, i?: number, arr?: T[]) => O): unknown {
+    return arg.map((_, i, arr) => fn(arr[arr.length - i - 1], i, arr))
 }
