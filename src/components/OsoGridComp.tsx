@@ -2,6 +2,7 @@ import OsoGrid from "../scripts/OsoGrid";
 import React from "react";
 import OsoSquareComp from "./OsoSquareComp";
 import "./OsoGame.sass"
+import { reverseMap } from "../scripts/utilities";
 
 interface Props {
     table: OsoGrid
@@ -12,10 +13,9 @@ export default class OsoGridComp extends React.Component<Props, Record<string, n
         const grid = this.props.table.grid
 
         const rows = grid.map((row, rowIndex) => {
-            let components = row.map((square, colIndex) => {
+            const components = reverseMap(row, (square, colIndex) => {
                 return <OsoSquareComp key={`${colIndex}-${rowIndex}`} square={square}/>
             })
-            components = components.reverse()
             return (
                 <div key={rowIndex} className="OsoRow">
                     { components }
