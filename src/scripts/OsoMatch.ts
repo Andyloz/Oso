@@ -26,4 +26,15 @@ export default class OsoMatch extends Line {
         }
         super(pointA, pointB);
     }
+
+    contains(point: Point): boolean {
+        let found = super.contains(point)
+        if (!found) {
+            const distance = this.pointA.distanceBetween(this.pointB)
+            const middlePoint = this.pointA.move(new Point(Math.abs(distance.x / 2), Math.abs(distance.y / 2)))
+            console.log(middlePoint)
+            found = point.equals(middlePoint)
+        }
+        return found
+    }
 }
