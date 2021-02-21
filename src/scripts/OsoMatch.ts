@@ -29,7 +29,7 @@ export default class OsoMatch extends Line {
 
     get middlePoint(): Point {
         const distance = this.pointA.distanceBetween(this.pointB)
-        return this.pointA.move(new Point(Math.abs(distance.x / 2), Math.abs(distance.y / 2)))
+        return this.pointA.move(new Point(distance.x / 2, distance.y / 2))
     }
 
     contains(point: Point): boolean {
