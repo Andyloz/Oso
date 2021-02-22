@@ -2,9 +2,11 @@ import React from "react";
 import OsoGame from "../scripts/OsoGame";
 import OsoGridComp from "./OsoGridComp";
 import { Input } from "../scripts/utilities";
+import OsoMatch from "../scripts/OsoMatch";
 
 interface State {
     game: OsoGame | null
+    matches: OsoMatch[] | null
 }
 
 export default class OsoGameComp extends React.Component<Record<string, never>, State> {
@@ -12,8 +14,11 @@ export default class OsoGameComp extends React.Component<Record<string, never>, 
         super(props);
         this.handlePlay = this.handlePlay.bind(this)
         this.handleSolitaire = this.handleSolitaire.bind(this)
-        this.handleRegenerate = this.handleRegenerate.bind(this)
-        this.state = { game: null }
+        this.handleExit = this.handleExit.bind(this)
+        this.state = {
+            game: null,
+            matches: null
+        }
     }
 
     handlePlay(e: React.MouseEvent<HTMLButtonElement>): void {
@@ -35,11 +40,18 @@ export default class OsoGameComp extends React.Component<Record<string, never>, 
     }
 
     handleSolitaire(): void {
-        console.log("hS")
+        const game = this.state.game
+        if (game) {
+            game.solitaire()
+            this.setState({ matches: game.matches })
+        }
     }
 
-    handleRegenerate(): void {
-        console.log("hR")
+    handleExit(): void {
+        this.setState({
+            game: null,
+            matches: null
+        })
     }
 
     render(): React.ReactNode {
@@ -51,7 +63,7 @@ export default class OsoGameComp extends React.Component<Record<string, never>, 
                 <div className="game">
                     <OsoGridComp table={game.table} matches={game.matches}/>
                     <button className="solitaire" onClick={this.handleSolitaire}>Solitaire</button>
-                    <button className="regenerate" onClick={this.handleRegenerate}>Regenerar tablero</button>
+                    <button className="exit" onClick={this.handleExit}>Salir</button>
                 </div>
             )
         } else {
