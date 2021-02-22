@@ -1,64 +1,44 @@
 @import "../vars"
 
-input[type=number]::-webkit-inner-spin-button,
-input[type=number]::-webkit-outer-spin-button
-  -webkit-appearance: none
-  margin: 0
-
 .OsoGame
   display: inline-block
 
-  .main
-    display: flex
-    flex-flow: column
-    text-align: center
-    font-weight: 400
+  .mainMenu
+    background-color: $crossed-bg
 
     form
-      display: flex
-      flex-wrap: wrap
-      justify-content: space-evenly
+      display: grid
       margin: 0
-      background-color: $crossed-bg
+      h1, button
+        grid-column-end: span 2
+        padding-left: 3rem
+        padding-right: 3rem
+      div
+        display: flex
+        flex-direction: column
+        align-items: center
+      button
+        margin-top: 1.5rem
+
       h1
-        flex: 100%
         font-weight: inherit
         font-size: 2.5rem
         strong
           color: red
           font-weight: inherit
       div
-        display: flex
-        flex-flow: column
-        align-items: center
+        label
+          font-weight: 500
         input
           width: 3em
-          margin: 0
           padding: .25em
           border: none
-          background-color: $crossed-bg-darker
-          font-family: inherit
-          text-align: inherit
+          background-color: white
           font-size: 1rem
-          appearance: none
-          -webkit-appearance: none
-          -moz-appearance: textfield
-
+          text-align: center
+          &::-webkit-inner-spin-button,
+          &::-webkit-outer-spin-button
+            margin: 0
+            -webkit-appearance: none
       button
-        $padding: .3em
-        $border: 3px
-        flex: 100%
-        margin-top: 1.5rem
-        padding: $padding 0
-        border: none
-        cursor: pointer
-        background-color: $crossed-bg-darker
-        border-bottom: solid red
-        border-bottom-width: 0
-        font-family: inherit
-        font-weight: 300
-        font-size: 2rem
-        &:hover
-          padding-bottom: calc(#{$padding} - #{$border})
-          border-bottom-width: 3px
-          transition: border-bottom-width .1s, padding-bottom .1s
+        font-size: 1.5rem

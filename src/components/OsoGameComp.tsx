@@ -45,20 +45,19 @@ export default class OsoGameComp extends React.Component<Record<string, never>, 
 
     render(): React.ReactNode {
         const game = this.state.game
-        const mainClassName = "main"
-        let main
+        let container
 
         if (game) {
-            main = (
-                <div className={mainClassName}>
+            container = (
+                <div className="game">
                     <OsoGridComp table={game.table} matches={game.matches}/>
-                    <button onClick={this.handleSolitaire}>Solitaire</button>
-                    <button onClick={this.handleRegenerate}>Regenerar tablero</button>
+                    <button className="solitaire" onClick={this.handleSolitaire}>Solitaire</button>
+                    <button className="regenerate" onClick={this.handleRegenerate}>Regenerar tablero</button>
                 </div>
             )
         } else {
-            main = (
-                <div className={mainClassName}>
+            container = (
+                <div className="mainMenu">
                     <form>
                         <h1>Juego <strong>OSO</strong></h1>
                         <div>
@@ -76,7 +75,7 @@ export default class OsoGameComp extends React.Component<Record<string, never>, 
         }
         return (
             <div className="OsoGame">
-                { main }
+                { container }
             </div>
         )
     }
