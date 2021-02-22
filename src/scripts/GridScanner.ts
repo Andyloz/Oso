@@ -29,7 +29,7 @@ export default class GridScanner {
     }
 
     coordIsValid(grid: Array<Array<unknown>>, coord: Point):boolean {
-        return !!grid[coord.x]?.[coord.y]
+        return !!grid[coord.y]?.[coord.x]
     }
 
     *getBoundaryCoords(grid: Array<Array<unknown>>, radius: number, movementCoordsGen: MovementCoordsGen): Generator<Point> {
