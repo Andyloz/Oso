@@ -24,7 +24,6 @@ export default class OsoGameComp extends React.Component<Record<string, never>, 
         if (colsInput && rowsInput) {
             const cols = Input.getInteger(colsInput) || 0
             const rows = Input.getInteger(rowsInput) || 0
-            console.log(cols, rows)
 
             if ([cols, rows].every(v => v > 0)) {
                 const game = new OsoGame(cols, rows)
