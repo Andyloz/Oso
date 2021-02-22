@@ -13,7 +13,6 @@ button
   border: none
   background-color: $crossed-bg
   font-family: inherit
-  outline: 0
   cursor: pointer
 
   &
@@ -32,10 +31,13 @@ button
       background-color: $grid-border-color
       filter: brightness(1)
       transition: $transitions
-    &:hover, &:focus
+    &:hover
       &::after
         height: 3px
         transition: $transitions
     &:active
       filter: brightness(1.05)
       transition: $transitions
+    &:focus
+      font-weight: 500
+      outline: 2px groove $crossed-bg
