@@ -11,23 +11,22 @@ input[type=number]::-webkit-outer-spin-button
   .main
     display: flex
     flex-flow: column
-    background-color: $crossed-bg
     text-align: center
     font-weight: 400
-    h1
-      margin-left: 1.5em
-      margin-right: 1.5em
-      font-weight: inherit
-      font-size: 2.5rem
-      strong
-        color: red
-        font-weight: inherit
 
     form
       display: flex
       flex-wrap: wrap
       justify-content: space-evenly
       margin: 0
+      background-color: $crossed-bg
+      h1
+        flex: 100%
+        font-weight: inherit
+        font-size: 2.5rem
+        strong
+          color: red
+          font-weight: inherit
       div
         display: flex
         flex-flow: column
@@ -41,7 +40,9 @@ input[type=number]::-webkit-outer-spin-button
           font-family: inherit
           text-align: inherit
           font-size: 1rem
+          appearance: none
           -webkit-appearance: none
+          -moz-appearance: textfield
 
       button
         $padding: .3em

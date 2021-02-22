@@ -59,8 +59,8 @@ export default class OsoGameComp extends React.Component<Record<string, never>, 
         } else {
             main = (
                 <div className={mainClassName}>
-                    <h1>Juego <strong>OSO</strong></h1>
                     <form>
+                        <h1>Juego <strong>OSO</strong></h1>
                         <div>
                             <label htmlFor="cols">Columnas</label>
                             <input type="number" id="cols"/>
