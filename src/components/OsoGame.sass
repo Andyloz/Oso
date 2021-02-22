@@ -5,32 +5,35 @@ $grid-border-width: 1px
 $grid-border-color: #cccccc
 $crossed-bg-color: #e6e6ff
 
-.OsoGrid
-  display: flex
-  flex-flow: column
-  font-family: "Raleway", sans-serif
-  font-weight: 200
+.OsoGame
+  display: inline-block
 
-  .OsoRow
+  .OsoGrid
     display: flex
+    flex-flow: column
+    font-family: "Raleway", sans-serif
+    font-weight: 200
 
-    .OsoSquare
+    .OsoRow
       display: flex
-      width: $square-width
-      height: $square-width
-      font-size: $value-size
-      line-height: 1em
-      & > span
-        margin: auto
-      &.crossed
-        background-color: $crossed-bg-color
-        color: #ff0000
 
-      border: $grid-border-width solid $grid-border-color
-      border-right-width: 0
-      border-bottom-width: 0
-      &:last-child
-        border-right-width: $grid-border-width
+      .OsoSquare
+        display: flex
+        width: $square-width
+        height: $square-width
+        font-size: $value-size
+        line-height: 1em
+        & > span
+          margin: auto
+        &.crossed
+          background-color: $crossed-bg-color
+          color: #ff0000
 
-    &:last-child .OsoSquare
-      border-bottom-width: $grid-border-width
+        border: $grid-border-width solid $grid-border-color
+        border-right-width: 0
+        border-bottom-width: 0
+        &:last-child
+          border-right-width: $grid-border-width
+
+      &:last-child .OsoSquare
+        border-bottom-width: $grid-border-width
