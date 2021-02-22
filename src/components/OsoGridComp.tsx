@@ -1,10 +1,10 @@
 import OsoGrid from "../scripts/OsoGrid";
 import React from "react";
-import "./OsoGame.sass"
+import "../styles/OsoGame.sass"
 import { reverseMap } from "../scripts/utilities";
 import OsoRowComp from "./OsoRowComp";
 import OsoMatch from "../scripts/OsoMatch";
-import "./OsoGrid.sass"
+import "../styles/OsoGrid.sass"
 
 interface Props {
     table: OsoGrid
