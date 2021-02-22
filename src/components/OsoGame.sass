@@ -29,11 +29,13 @@
       div
         label
           font-weight: 500
+          color: hsl(0, 0%, 20%)
         input
           width: 3em
           padding: .25em
           border: none
           background-color: white
+          font-family: inherit
           font-size: 1rem
           text-align: center
           &::-webkit-inner-spin-button,
@@ -41,4 +43,16 @@
             margin: 0
             -webkit-appearance: none
       button
+        background-color: $crossed-bg-darker
         font-size: 1.5rem
+        &::after
+          background-color: red
+
+
+  .game
+    display: flex
+    flex-direction: column
+    button
+      font-size: 1rem
+      border: solid $grid-border-color
+      border-width: 0 1px 1px
