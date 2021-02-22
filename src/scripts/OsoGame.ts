@@ -28,13 +28,25 @@ export default class OsoGame {
                     continue
                 }
 
-                const middlePoint = new Point(x, y)
                 const middleSquare = grid[y][x]
 
                 if (middleSquare.value === OsoValue.S) {
                     const matchBPoints: Point[] = []
-                    scanner.position = new Point(x, y)
-                    const roundCoords = scanner.getBoundaryCoords(grid, 1, GridScanner.movementCoordsGens.square)
+                    const middlePoint = new Point(x, y)
+                    scanner.position = middlePoint
+
+                    let roundCoords: Iterable<Point>
+                    if (atXBorder || atYBorder) {
+                        const pointA = middlePoint.clone()
+                        if (atXBorder) {
+                            pointA.y -= 1
+                        } else { // atYBorder
+                            pointA.x -= 1
+                        }
+                        roundCoords = [pointA]
+                    } else {
+                        roundCoords = scanner.getBoundaryCoords(grid, 1, GridScanner.movementCoordsGens.square)
+                    }
 
                     for (const pointA of roundCoords) {
                         if (!matchBPoints.find(matchedPoint => matchedPoint.equals(pointA))) {
