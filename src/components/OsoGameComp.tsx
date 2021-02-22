@@ -45,7 +45,6 @@ export default class OsoGameComp extends React.Component<Record<string, never>, 
 
     render(): React.ReactNode {
         const game = this.state.game
-        console.log(!!game)
         const mainClassName = "main"
         let main
 

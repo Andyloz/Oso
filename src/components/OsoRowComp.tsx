@@ -2,6 +2,7 @@ import React from "react";
 import OsoSquare from "../scripts/OsoSquare";
 import OsoSquareComp from "./OsoSquareComp";
 import OsoMatch from "../scripts/OsoMatch";
+import "./OsoRow.sass"
 
 interface Props {
     tableRow: OsoSquare[]

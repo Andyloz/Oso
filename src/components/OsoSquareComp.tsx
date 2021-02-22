@@ -1,5 +1,6 @@
 import OsoSquare from "../scripts/OsoSquare";
 import React from "react";
+import "./OsoSquare.sass"
 
 interface Props {
     square: OsoSquare

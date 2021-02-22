@@ -4,6 +4,7 @@ import "./OsoGame.sass"
 import { reverseMap } from "../scripts/utilities";
 import OsoRowComp from "./OsoRowComp";
 import OsoMatch from "../scripts/OsoMatch";
+import "./OsoGrid.sass"
 
 interface Props {
     table: OsoGrid
