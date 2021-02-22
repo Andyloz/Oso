@@ -1,39 +1,50 @@
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@200&display=swap')
-$square-width: 4rem
-$value-size: 3.75rem
-$grid-border-width: 1px
-$grid-border-color: #cccccc
-$crossed-bg-color: #e6e6ff
+@import "../vars"
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button
+  -webkit-appearance: none
+  margin: 0
 
 .OsoGame
   display: inline-block
 
-  .OsoGrid
+  .main
     display: flex
     flex-flow: column
-    font-family: "Raleway", sans-serif
-    font-weight: 200
-
-    .OsoRow
+    background-color: $crossed-bg
+    text-align: center
+    font-weight: 400
+    h1
+      margin-left: 1.5em
+      margin-right: 1.5em
+      font-weight: inherit
+      font-size: 2.5rem
+      strong
+        color: red
+        font-weight: inherit
+    form
       display: flex
-
-      .OsoSquare
+      justify-content: space-evenly
+      margin-bottom: 1.5rem
+      div
         display: flex
-        width: $square-width
-        height: $square-width
-        font-size: $value-size
-        line-height: 1em
-        & > span
-          margin: auto
-        &.crossed
-          background-color: $crossed-bg-color
-          color: #ff0000
-
-        border: $grid-border-width solid $grid-border-color
-        border-right-width: 0
-        border-bottom-width: 0
-        &:last-child
-          border-right-width: $grid-border-width
-
-      &:last-child .OsoSquare
-        border-bottom-width: $grid-border-width
+        flex-flow: column
+        align-items: center
+        input
+          width: 3em
+          margin: 0
+          padding: .25em
+          border: none
+          background-color: $crossed-bg-darker
+          font-family: inherit
+          text-align: inherit
+          font-size: 1rem
+          -webkit-appearance: none
+    button
+      padding: .3em 0
+      border: none
+      cursor: pointer
+      background-color: $crossed-bg-darker
+      font-family: inherit
+      font-weight: 300
+      font-size: 2rem

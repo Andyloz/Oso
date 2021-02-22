@@ -1,0 +1,31 @@
+@import "../vars"
+
+.OsoGrid
+  display: flex
+  flex-flow: column
+  font-family: "Raleway", sans-serif
+  font-weight: 200
+
+  .OsoRow
+    display: flex
+
+    .OsoSquare
+      display: flex
+      width: $square-width
+      height: $square-width
+      font-size: $value-size
+      line-height: 1em
+      & > span
+        margin: auto
+      &.crossed
+        background-color: $crossed-bg
+        color: #ff0000
+
+      border: $grid-border-width solid $grid-border-color
+      border-right-width: 0
+      border-bottom-width: 0
+      &:last-child
+        border-right-width: $grid-border-width
+
+    &:last-child .OsoSquare
+      border-bottom-width: $grid-border-width
