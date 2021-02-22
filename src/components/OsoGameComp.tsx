@@ -25,7 +25,7 @@ export default class OsoGameComp extends React.Component<Props, State> {
 
     render(): React.ReactNode {
         return (
-            <div>
+            <div className="OsoGame">
                 <OsoGridComp table={this.props.game.table} matches={this.state.matches}/>
                 <button onClick={this.handleSolitaire}>Solitaire</button>
             </div>
